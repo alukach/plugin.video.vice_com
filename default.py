@@ -71,7 +71,7 @@ def listShows():
         title = cleanTitle(match[0][1])
         match = re.compile('src="(.+?)"', re.DOTALL).findall(entry)
         thumb = match[0]
-        match = re.compile('<p>(.+?)</p>', re.DOTALL).findall(entry)
+        match = re.compile('<p>(.+?)</p>', re.DOTALL).findall(entry) or ['']
         desc = match[0]
         addShowDir(title, url, 'listVideos', thumb, desc)
     xbmcplugin.endOfDirectory(pluginhandle)
