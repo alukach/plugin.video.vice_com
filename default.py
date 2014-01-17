@@ -45,7 +45,7 @@ def listLatest():
     spl = content.split('<li class="story" data-vr-contentbox="vice-vbs-index-video')
     for i in range(1, len(spl), 1):
         entry = spl[i]
-        match = re.compile('<p>(.+?)</p>', re.DOTALL).findall(entry)
+        match = re.compile('<p>(.+?)</p>', re.DOTALL).findall(entry) or ['']
         desc = match[0]
         match = re.compile('<span>(.+?)</span>', re.DOTALL).findall(entry)
         date = match[0]
